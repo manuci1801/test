@@ -88,7 +88,8 @@
                                 <%if(typeof user !== 'undefined') {%>
                                     <li class="button_user"><a class="button active" href="#"><%= user.name %></a></li>
                                 <% } else { %>
-                                    <li class="button_user"><a class="button active" href="/auth">Signin/Signup</a></li>
+                                    <li class="button_user"><a class="button active" href="/login">Signin</a></li>
+                                    <li class="button_user"><a class="button" href="/register">Signup</a></li>
                                 <% } %>
                                 <li><img style="margin-right: 15px;" src="images/search_icon.png" alt="#"></li>
                                 <li>
@@ -235,21 +236,33 @@
                       
                         <form class="main_form">
                             <div class="row">
-                             
+                                <% if(typeof user != 'undefined') {%>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='nameTxt' class="form-control" value="<%= user.name %>" disabled type="text" name="Name">
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='emailTxt' class="form-control" value="<%= user.email %>" disabled type="text" name="Email">
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='phoneTxt' class="form-control" value="<%= user.phone %>" disabled type="text" name="Phone">
+                                    </div>
+                                <% } else { %>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='nameTxt' class="form-control" placeholder="Name" type="text" name="Name">
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='emailTxt' class="form-control" placeholder="Email" type="text" name="Email">
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <input id='phoneTxt' class="form-control" placeholder="Phone" type="text" name="Phone">
+                                    </div>
+                                <% } %>
+                                
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Name" type="text" name="Name">
+                                    <textarea id='messageTxt' class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                                 </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Phone" type="text" name="Phone">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <button class="send">Send</button>
+                                <div  class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <button onclick="sendRequest(); return false;" class="send">Send</button>
                                 </div>
                             </div>
                         </form>

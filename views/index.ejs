@@ -88,7 +88,8 @@
                                 <%if(typeof user !== 'undefined') {%>
                                     <li class="button_user"><a class="button active" href="#"><%= user.name %></a></li>
                                 <% } else { %>
-                                    <li class="button_user"><a class="button active" href="/auth">Signin/Signup</a></li>
+                                    <li class="button_user"><a class="button active" href="/login">Signin</a></li>
+                                    <li class="button_user"><a class="button" href="/register">Signup</a></li>
                                 <% } %>
                                 <li><img style="margin-right: 15px;" src="images/search_icon.png" alt="#"></li>
                                 <li>
@@ -459,10 +460,10 @@
                     <div class="col-md-12">
                         <div class="new">
                             <h3>Newsletter</h3>
-                            <form class="newtetter">
-                                <input class="tetter" placeholder="Your email" type="text" name="Your email">
-                                <button class="submit">Subscribe</button>
-                            </form>
+                            <div class="newtetter">
+                                <input id="subscribe-input" class="tetter" placeholder="Your email" type="text" name="Your email">
+                                <button  onclick="handleSubscribe(); return false;" class="submit">Subscribe</button>
+                            </div>
                         </div>
                     </div>
                 </div>
