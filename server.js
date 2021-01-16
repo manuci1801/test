@@ -110,7 +110,7 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash("1234", 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       name,
       email,
